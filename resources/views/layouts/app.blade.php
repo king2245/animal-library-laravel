@@ -113,6 +113,7 @@
     <footer>
         <p>Animal Library Project | Created by: Chika Chinedu David  and Aiana Usubalieva</p>
         <p>Neptun codes:BYQJBV and GOXWA1 </p>
+           <p>© {{ date('Y') }} Animal Library Project</p>
     </footer>
 
 </body>
