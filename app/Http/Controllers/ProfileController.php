@@ -57,4 +57,35 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+
+    public function calculateAwesomeness(Request $request)
+    {
+        $user = $request->user();
+
+        $score = strlen($user->name) * rand(5, 25);
+
+        return response()->json([
+            'user' => $user->name,
+            'awesomeness_score' => $score,
+            'status' => $score > 100 ? 'Legend' : 'Normal Human',
+        ]);
+    }
+
+
+
+    public function profileOracle()
+    {
+        $predictions = [
+            'You will fix a bug today.',
+            'A missing semicolon watches you.',
+            'Your next deployment will be surprisingly smooth.',
+            'The database remembers everything.',
+            'An unexpected null value approaches.'
+        ];
+
+        return response()->json([
+            'message' => $predictions[array_rand($predictions)]
+        ]);
+    }
 }
